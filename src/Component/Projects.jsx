@@ -33,21 +33,30 @@ function Projects() {
             </div>
           </Link>
         </div>
-        <div className="box">
+        {/* <div className="box">
           <Link to="https://ahmed3mer118.github.io/Crud" target="_blank">
             <img src={crud} alt="project3" />
             <div className="details">
-              <h2>Crud System</h2>
+              <h2>Product management system</h2>
               <p>
                 Product management system using JavaScript. Data can be stored
                 in LocalStorage. Products can be modified or deleted.
               </p>
             </div>
           </Link>
+        </div> */}
+             <div className="box">
+          <Link to="/quiz">
+            <img src={"/image/quiz4.png"} alt="project5" />
+            <div className="details">
+              <h2>Quiz App </h2>
+              <p>A simple project for Quiz App: HTML , CSS , JS , Bootstrap and React</p>
+            </div>
+          </Link>
         </div>
         <div className="box">
-          <Link to="https://ahmed3mer118.github.io/WeatherApp" target="_blank">
-            <img src={weatherApp} alt="project2" />
+          <Link to="https://wheaterapp118.netlify.app/" target="_blank">
+            <img src={"/image/weatherapp.png"} alt="project3" />
             <div className="details">
               <h2>Weather App</h2>
               <p>
@@ -81,15 +90,7 @@ function Projects() {
             </div>
           </Link>
         </div>
-        <div className="box">
-          <Link to="https://ahmed3mer118.github.io/QuizApp" target="_blank">
-            <img src={quiz} alt="project5" />
-            <div className="details">
-              <h2>Quiz App </h2>
-              <p>A simple project for Quiz App: HTML , CSS ,and JS</p>
-            </div>
-          </Link>
-        </div>
+   
       </div>
     </section>
     { showFooter && <Footer /> }
