@@ -20,7 +20,7 @@ function Projects() {
       <h1 className="title">My Project</h1>
       <div className="project-box container">
         <div className="box">
-          <Link to="https://vemoda.netlify.app/" target="_blank">
+          <Link to="https://vemoda-dist.vercel.app/" target="_blank">
             <img src={vemoda} alt="project1" />
             <div className="details">
               <h2>Vemoda Store</h2>
