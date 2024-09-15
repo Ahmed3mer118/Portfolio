@@ -11,7 +11,7 @@ function Footer() {
           <a href="https://www.facebook.com/profile.php?id=100010224039198&mibextid=ZbWKwL" target="_blank">
             <i className="fa-brands fa-facebook"></i>
           </a>
-          <a href="https://www.whatsapp.com">
+          <a href="https://api.whatsapp.com/send?phone=201033705805">
             <i className="fa-brands fa-whatsapp"></i>
           </a>
           <a href="https://instagram.com/ahmed_3amer118?igshid=MzNlNGNkZWQ4Mg==" target="_blank">

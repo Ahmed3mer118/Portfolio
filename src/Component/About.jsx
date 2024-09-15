@@ -7,16 +7,15 @@ function About() {
   const showFooter = location.pathname ==="/about"
   return (
     <>
-    <section className="about">
+    <section className="about ">
       <div className="about container">
         <img src={portfolioImage} alt="portfolio image" />
         <div className="details">
           <h1 className="title">About Me </h1>
           <p>
            
-            I'm Ahmed amer , i'm studying department of Business information
-            system , now i working part time Front-end instructor, and the team
-            leader IEEE OCS Community El-Obour
+            I'm Ahmed amer , I'm studying department of Business information
+            system , now i working part time Front-end
           </p>
 
           <h1 className="text-center text-primary mt-2">Skills</h1>
@@ -26,13 +25,15 @@ function About() {
               <h3>CSS</h3>
               <h3>JS</h3>
               <h3>Bootstrap</h3>
+              <h3>Tailwind</h3>
               <h3>React</h3>
             </div>
             <div className="skills-details">
-              <h3>React toastify</h3>
+              <h3>Git & GitHub</h3>
               <h3>Responsive Website</h3>
               <h3>Figma</h3>
-              <h3>Git & GitHub</h3>
+              <h3>Headless CMS</h3>
+              <h3>State Management</h3>
             </div>
           </div>
         </div>

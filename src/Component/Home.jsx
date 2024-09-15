@@ -15,13 +15,13 @@ function Home() {
       <div className="info">
         <h2>Hello, My name's</h2>
         <h1 className='name'>Ahmed Amer</h1>
-        <h3>I'm a Instructor and Front End React</h3>
+        <h3>I'm a Front End React</h3>
         <ul>
             <li>
                 <a href="https://www.facebook.com/profile.php?id=100010224039198&mibextid=ZbWKwL" target='_blank'><FaFacebook /></a>
             </li>
             <li>
-                <a href="https://api.whatsapp.com/send?phone=+201033705805" target='_blank'><FaWhatsapp /></a>
+                <a href="https://api.whatsapp.com/send?phone=201033705805" target='_blank'><FaWhatsapp /></a>
             </li>
             <li>
                 <a href="https://instagram.com/ahmed_3amer118?igshid=MzNlNGNkZWQ4Mg==" target='_blank'><FaInstagram /></a>
@@ -32,7 +32,7 @@ function Home() {
       <img src={portfolioImage} alt="Image" />
     </div>
     </section>
-    <Servies />
+    {/* <Servies /> */}
    <Projects />
     <About />
     <Footer />
