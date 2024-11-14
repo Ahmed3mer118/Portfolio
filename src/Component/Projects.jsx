@@ -1,99 +1,111 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 import vemoda from "../image/vemoda.png";
 import weatherApp from "../image/weather.jpg";
 import template from "../image/template.jpg";
 import crud from "../image/crud.jpg";
 import Qrcode from "../image/qrcode.jpg";
 import quiz from "../image/quiz.jpg";
-import { Link,  useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Footer from "./Footer";
+import "../CSS/home.css";
 
-function Projects() {
-  // const [showFooter, setShowFooter] = useState(false);
-  const location= useLocation()
-   const  showFooter = location.pathname === "/projects"
+const projectsData = [
+  {
+    id: 1,
+    link: "https://vemoda-dist.vercel.app/",
+    image: vemoda,
+    title: "Vemoda Store",
+    description:
+      "Vemoda is built using React. Techniques used: Context Api, API Products",
+  },
+  {
+    id: 2,
+    link: "https://ahmed3mer118.github.io/Crud",
+    image: crud,
+    title: "Product management system",
+    description:
+      " Data can be stored in LocalStorage , and export data to sheet excal",
+  },
+  {
+    id: 3,
+    link: "/quiz",
+    image: "/image/quiz4.png",
+    title: "Quiz App",
+    description:
+      "A simple project for Quiz App: HTML, CSS, JS, Bootstrap, and React.",
+  },
+  {
+    id: 4,
+    link: "https://wheaterapp118.netlify.app/",
+    image: "/image/weatherapp.png",
+    title: "Weather App",
+    description:
+      "A project to know the weather condition through the use of an API that can be searched by city name.",
+  },
+  {
+    id: 5,
+    link: "https://ahmed3mer118.github.io/Simple-Template",
+    image: template,
+    title: "Restaurant-Template",
+    description:
+      "This is a simple model for a restaurant, and the site is responsive on all screens.",
+  },
+  {
+    id: 6,
+    link: "https://ahmed3mer118.github.io/QR-code",
+    image: Qrcode,
+    title: "QR code",
+    description: "A simple project for QR CODE. You can create any QR and scan it.",
+  },
+];
+
+function ProjectBox({ project }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const boxRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    if (boxRef.current) observer.observe(boxRef.current);
+
+    return () => {
+      if (boxRef.current) observer.unobserve(boxRef.current);
+    };
+  }, []);
 
   return (
-    <> 
-    <section className="projects ">
-      <h1 className="title">My Project</h1>
-      <div className="project-box container">
-        <div className="box">
-          <Link to="https://vemoda-dist.vercel.app/" target="_blank">
-            <img src={vemoda} alt="project1" />
-            <div className="details">
-              <h2>Vemoda Store</h2>
-              <p>
-                Vemoda is built using React
-                <br />
-                use Techniques :<span>Context Api </span>
-                <span>API Products</span>
-              </p>
-            </div>
-          </Link>
+    <div ref={boxRef} className={`box ${isVisible ? "visible" : ""}`}>
+      <Link to={project.link} target="_blank">
+        <img src={project.image} alt={project.title} />
+        <div className="details">
+          <h2>{project.title}</h2>
+          <p>{project.description}</p>
+          <button className="btn btn-success ">Live Dimo</button>
         </div>
-        {/* <div className="box">
-          <Link to="https://ahmed3mer118.github.io/Crud" target="_blank">
-            <img src={crud} alt="project3" />
-            <div className="details">
-              <h2>Product management system</h2>
-              <p>
-                Product management system using JavaScript. Data can be stored
-                in LocalStorage. Products can be modified or deleted.
-              </p>
-            </div>
-          </Link>
-        </div> */}
-             <div className="box">
-          <Link to="/quiz">
-            <img src={"/image/quiz4.png"} alt="project5" />
-            <div className="details">
-              <h2>Quiz App </h2>
-              <p>A simple project for Quiz App: HTML , CSS , JS , Bootstrap and React</p>
-            </div>
-          </Link>
+      </Link>
+    </div>
+  );
+}
+
+function Projects() {
+  const location = useLocation();
+  const showFooter = location.pathname === "/projects";
+
+  return (
+    <>
+      <section className="projects">
+        <h1 className="title">My Projects</h1>
+        <div className="project-box container">
+          {projectsData.map((project) => (
+            <ProjectBox key={project.id} project={project} />
+          ))}
+      
         </div>
-        <div className="box">
-          <Link to="https://wheaterapp118.netlify.app/" target="_blank">
-            <img src={"/image/weatherapp.png"} alt="project3" />
-            <div className="details">
-              <h2>Weather App</h2>
-              <p>
-                A project to know the weather condition through the use of an
-                API that can be searched by city name
-              </p>
-            </div>
-          </Link>
-        </div>
-        <div className="box">
-          <Link
-            to="https://ahmed3mer118.github.io/Simple-Template"
-            target="_blank"
-          >
-            <img src={template} alt="project2" />
-            <div className="details">
-              <h2>Restaurant-Templat</h2>
-              <p>
-                This is a simple model for a restaurant, and the site is
-                responsive on all screens
-              </p>
-            </div>
-          </Link>
-        </div>
-        <div className="box">
-          <Link to="https://ahmed3mer118.github.io/QR-code" target="_blank">
-            <img src={Qrcode} alt="project5" />
-            <div className="details">
-              <h2>QR code </h2>
-              <p>A simple project for QR CODE can you create any QR and scan</p>
-            </div>
-          </Link>
-        </div>
-   
-      </div>
-    </section>
-    { showFooter && <Footer /> }
+      </section>
+      {showFooter && <Footer />}
     </>
   );
 }

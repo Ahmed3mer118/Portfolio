@@ -4,40 +4,62 @@ import { FaBars } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
-  const [menuOpen, setMenuopen] = useState(false);
-  const showNabar = () => {
-    setMenuopen(!menuOpen);
-    console.log("done");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeNavbar = () => {
+    setMenuOpen(false);
   };
 
   return (
-    <header>
-      <div className="container ">
-        <h1 className="text-light">Ahmed Amer</h1>
-        <ul className={menuOpen ? "responsive nav" : "nav"}>
+    <header className="navbar">
+      <div className="container">
+        <h1 className="navbar-brand text-light">Ahmed Amer</h1>
+        <ul className={menuOpen ? "nav responsive" : "nav"}>
           <li className="nav-item">
-            <NavLink to="/" className="nav-link text-light">
+            <NavLink
+              to="/"
+              className="nav-link text-light"
+              onClick={closeNavbar}
+            >
               Home
             </NavLink>
           </li>
-
           <li className="nav-item">
-            <NavLink to="/projects" className="nav-link text-light">
+            <NavLink
+              to="/projects"
+              className="nav-link text-light"
+              onClick={closeNavbar}
+            >
               Projects
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/about" className="nav-link text-light">
+            <NavLink
+              to="/about"
+              className="nav-link text-light"
+              onClick={closeNavbar}
+            >
               About
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="#" className="nav-link text-light">
+            <NavLink
+              to="#contact"
+              className="nav-link text-light"
+              onClick={closeNavbar}
+            >
               Contact Me
             </NavLink>
           </li>
         </ul>
-        <button className="btn btn-dark" onClick={showNabar}>
+        <button
+          className="navbar-toggler btn btn-dark text-light"
+          onClick={toggleNavbar}
+        >
           <FaBars />
         </button>
       </div>
