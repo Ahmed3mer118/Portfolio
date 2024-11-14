@@ -28,7 +28,7 @@ const projectsData = [
   },
   {
     id: 3,
-    link: "/quiz",
+    link: "https://quiz-app-zeta-gules.vercel.app/",
     image: "/image/quiz4.png",
     title: "Quiz App",
     description:
